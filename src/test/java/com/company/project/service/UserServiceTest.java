@@ -13,14 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.company.project.configurer;
+package com.company.project.service;
 
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import com.company.project.AbstractSpringContextTest;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author DeserveL
- * @date 2017/7/19 17:24
+ * @date 2017/7/20 15:44
  * @since 1.0.0
  */
-public class WebMvcConfig extends WebMvcConfigurerAdapter{
+public class UserServiceTest extends AbstractSpringContextTest {
+
+    @Autowired
+    DemoService demoService;
+
+    @Test
+    public void list(){
+        System.out.println(demoService.findAll());
+    }
 }

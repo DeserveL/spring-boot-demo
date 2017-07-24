@@ -58,7 +58,7 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
         //genCode("输入表名");
-        genCode("user");
+        genCode("demo");
     }
 
     public static void genCode(String... tableNames) {
