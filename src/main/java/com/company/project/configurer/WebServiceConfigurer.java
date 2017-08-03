@@ -18,9 +18,7 @@ package com.company.project.configurer;
 import com.company.project.webservice.service.DemoWebService;
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
-import org.apache.cxf.transport.servlet.CXFServlet;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -41,12 +39,7 @@ public class WebServiceConfigurer {
     DemoWebService demoWebService;
 
     @Bean
-    public ServletRegistrationBean dispatcherServlet() {
-        return new ServletRegistrationBean(new CXFServlet(), "/cxf/*");
-    }
-
-    @Bean
-    public Endpoint endpoint(){
+    public Endpoint endpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, demoWebService);
         endpoint.publish("/demo");
         return endpoint;
